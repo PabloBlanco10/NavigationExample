@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +19,39 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VDv-pb-ehB">
+                    <rect key="frame" x="112.5" y="283.5" width="150" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="cZp-rB-kGu"/>
+                        <constraint firstAttribute="height" constant="100" id="xGf-9J-BG7"/>
+                    </constraints>
+                    <state key="normal" title="Navigate"/>
+                    <connections>
+                        <action selector="navigateAction:" destination="-1" eventType="touchUpInside" id="teY-hd-5pA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfC-f9-ITM">
+                    <rect key="frame" x="112.5" y="83.5" width="150" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="akT-zM-vEM"/>
+                        <constraint firstAttribute="width" constant="150" id="xN1-Zn-F04"/>
+                    </constraints>
+                    <state key="normal" title="Back"/>
+                    <connections>
+                        <action selector="backNavigation:" destination="-1" eventType="touchUpInside" id="hyQ-IB-3Qg"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="xfC-f9-ITM" firstAttribute="leading" secondItem="VDv-pb-ehB" secondAttribute="leading" id="IFE-bo-3zD"/>
+                <constraint firstItem="VDv-pb-ehB" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="ijp-pT-91P"/>
+                <constraint firstItem="VDv-pb-ehB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="k04-fd-TvS"/>
+                <constraint firstItem="VDv-pb-ehB" firstAttribute="top" secondItem="xfC-f9-ITM" secondAttribute="bottom" constant="100" id="zkI-Il-Z9J"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>

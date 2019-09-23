@@ -11,22 +11,18 @@ import UIKit
 class SecondVC: BaseViewController {
     var coordinator : SecondCoordinator?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    @IBAction func navigateAction(_ sender: Any) {
-        coordinator?.navigate()
-    }
+    override func viewDidLoad() { super.viewDidLoad() }
+    
+    @IBAction func navigateAction(_ sender: Any) { coordinator?.navigate() }
+
 }
 
 class SecondCoordinator: Coordinator {
     let nib = "SecondVC"
     
     func start(){
-        navigator?.present(viewController(), animated: true, completion: nil)
-//      navigator?.show(viewController(), sender: nil)
-        
+        //Push navigation
+        navigator?.show(viewController(), sender: nil)
     }
     
     func viewController() -> SecondVC {
@@ -35,7 +31,5 @@ class SecondCoordinator: Coordinator {
         return viewControler
     }
     
-    func navigate(){
-        ThirdCoordinator(navigator).start()
-    }
+    func navigate(){ ThirdCoordinator(navigator).start() }
 }

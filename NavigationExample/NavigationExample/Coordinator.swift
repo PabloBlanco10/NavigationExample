@@ -15,7 +15,6 @@ class Coordinator {
     
     init(_ navigator: UINavigationController?) {self.navigator = navigator}
     func back(){navigator?.popViewController(animated: true)}
-
 }
 
 class AppCoordinator: Coordinator {
@@ -26,7 +25,6 @@ class AppCoordinator: Coordinator {
     }
     
     func setRootController(){
-        //Token logic
         if childCoordinators.count > 0 {childCoordinators.removeAll()}
         if let presented = navigator?.presentedViewController{
             presented.dismiss(animated: false, completion: {
@@ -34,8 +32,22 @@ class AppCoordinator: Coordinator {
                 self.start()
             })
         }
-        else{
-            
+    }
+    
+    //Get presented ViewController
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        
+        if let navigationController = base as? UINavigationController {
+            return topViewController(base: navigationController.visibleViewController)
         }
+        if let tabController = base as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
     }
 }

@@ -22,11 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func initAppCoordinator(){
         let navigationController = UINavigationController()
         navigationController.view.backgroundColor = UIColor.white
-        navigationController.navigationBar.isHidden = true
         window?.rootViewController = navigationController
         AppDelegate.appCoordinator = AppCoordinator(navigationController)
         AppDelegate.appCoordinator?.start()
         window?.makeKeyAndVisible()
     }
 }
-
